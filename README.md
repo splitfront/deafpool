@@ -32,12 +32,15 @@ BYO payload. Use worker-threads, web-workers, shell utils in async wrappers.
 ## What does it lack?
 
 - a nicer API
-    - `const runner = makeRunner(getCustomPromise); runner([1,2,3]).then(console.log);`
+    - `const runner = makeRunner(getCustomPromise);`
+    - `runner([1,2,3]).then(console.log);`
 - make a zero-dependency NPM package & publish it
-- someway to pause or cancel running tasks
-    - `run([1,2]).then(processArray)`
+- some way to pause or cancel running tasks
 - error/rejection/exception handling
+    - this warrants a rewrite with `async`/`await`
 - more robust implementation of deterministic order in results' iterable
-- runtime-parametrised pool size -- if I were you, I'd go for `number_of_cores - 2`
+    - should work like an `Array.map()`
+    - `generators`, `iterators` etc.?
+- runtime-parametrised pool size, autodetect by default -- `number_of_cores - 2`
 
 By design, it lacks everything, b/c POC/MVP/demo/example made to be messed with.

@@ -44,3 +44,11 @@ BYO payload. Use worker-threads, web-workers, shell utils in async wrappers.
 - runtime-parametrised pool size, autodetect by default -- `number_of_cores - 2`
 
 By design, it lacks everything, b/c POC/MVP/demo/example made to be messed with.
+
+## re: async/await vs promises:
+
+> The async and await keywords enable asynchronous, promise-_based_ behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains. If the return value of an async function is not explicitly a promise, it will be implicitly wrapped in a promise. Even though the return value of an async function behaves as if it's wrapped in a Promise.resolve, they are _not equivalent_.
+
+> An async function will return a different reference, whereas Promise.resolve returns the same reference if the given value is a promise.
+
+> It can be a problem when you want to check the equality of a promise and a return value of an async function.
